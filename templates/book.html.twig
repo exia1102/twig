@@ -1,0 +1,41 @@
+{%extends 'base.html.twig'%}
+
+{%block content%}
+
+
+<div class="container-fluid"style="height: 91.5vh;min-height: 30rem;">
+  <div class="row">
+    <div class="col-4">
+      <img src="./img/harry1.jpg"class="w-100">
+    </div>
+    <div class="col-8">
+      {%if bookInfo is null%}
+      <h1>something is wrong</h1>
+      {%else%}
+      <h2>{{bookInfo.bname}}</h2>
+      <p class="mb-0 pb-1">{{bookInfo.summary}}</p>
+      <ul class="nav">
+        {%for category in category%}
+          <li class="nav-item">
+            
+            <a class="nav-link active pl-0" href="#">{{category}}</a>
+            
+          </li>
+          {%endfor%} 
+      </ul>
+      <p class="text-justify">{{bookInfo.description}}</p>
+      {%endif%}
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+{%endblock%}

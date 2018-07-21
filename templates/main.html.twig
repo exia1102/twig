@@ -1,0 +1,82 @@
+{%extends 'base.html.twig'%}
+
+{%block css1%}
+<style type="text/css">
+
+.store-bg{
+	height: 70vh;
+	min-height: 30rem;
+	background-image: url('./img/store.jpg');
+	background-size: cover;
+	background-position: center;
+}
+	
+
+</style>
+
+
+
+
+{%endblock%}
+
+
+
+{%block content%}
+
+
+<div class="container-fluid p-0 position-relative store-bg" style="">
+	<div class="row w-100"style="background-color: #666;opacity: 0.4;z-index: 99;height: 70vh;min-height: 30rem;">
+	</div>
+
+	<div class="row align-items-center w-100 p-0 m-0 position-absolute" style="top:0;left: 0;height: 70vh;min-height: 30rem;">
+		<p class="text-center text-white display-3 col-12 m-0 p-0">Welcome to Nero bookstore !</p>
+	</div>
+</div>
+
+
+
+<div class="container-fluid"style="height: 70vh;min-height: 30rem;background-color: white;">
+	<div class="row">
+		{%for book in books%}
+		<div class="col-lg-3 col-12 col-md-4">
+			<div class="card" style="width: 18rem;">
+			  <img class="card-img-top" src="{{book.imgUrl}}" alt="Card image cap">
+			  <div class="card-body">
+			    <h5 class="card-title">{{book.bname}}</h5>
+			    <p class="card-text">{{book.summary}}</p>
+			    <a class="btn btn-primary buy_button text-white"data-price="{{book.price}}">Buy {{book.price}}</a>
+			  </div>
+			</div>
+		</div>
+		{%endfor%}
+
+	</div>
+</div>
+
+
+<div class="p-4 pricebox" style="position:fixed;bottom:2rem;right:1rem; height:5rem;width: 5rem;background-color: blue;color: #fff;text-align: center;line-height: 2.5rem; font-size: 1.5rem" >0</div>
+
+
+{%endblock%}
+
+
+{%block javascript%}
+<script type="text/javascript">
+
+
+$(".buy_button").click(function(){
+	var originalprice = $('.pricebox').text();
+	var price =$(this).data('price');
+	// console.log(price);
+	var currentprice=parseInt(originalprice)+parseInt(price);
+	$('.pricebox').text(currentprice);
+
+
+})	
+
+</script>
+
+
+
+{%endblock%}
+
