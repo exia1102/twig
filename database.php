@@ -40,7 +40,7 @@ class database{
 				":bid"=>$bid,
 			)
 		);
-		return $stmt->fetchall(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 
